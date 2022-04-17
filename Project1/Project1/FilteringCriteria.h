@@ -7,7 +7,7 @@
 
 class FilteringCriteria
 {public:
-	virtual DynamicArray filter(DynamicArray& da);
+	virtual DynamicArray filter(DynamicArray& da)=0;
 
 };
 //this clase inherits from filtering criteria
@@ -103,18 +103,18 @@ public:
 };
 
 class FilterAnd :public FilteringCriteria {
-public:
-	FilteringCriteria criteria;
-	FilteringCriteria otherCriteria;
+private:
+	FilteringCriteria *criteria ;
+	FilteringCriteria *otherCriteria;
 public:
 	FilterAnd(FilteringCriteria criteria1, FilteringCriteria otherCriteria1);
-
+	FilterAnd(FilteringCriteria* f, FilteringCriteria* s);
 	DynamicArray filter(DynamicArray& arr) {
 		DynamicArray result;
-		result = criteria.filter(arr);
-		cout << result;
-		//result = otherCriteria.filter(result);
-		
+		result =criteria->filter(arr);
+		result = otherCriteria->filter(result);
 		return result;
+		
+		
 	}
 };

@@ -33,9 +33,16 @@ FilterDeparture::FilterDeparture(string loc1)
 {
 	this->loc = loc1;
 }
-
+/*
 FilterAnd::FilterAnd(FilteringCriteria criteria1, FilteringCriteria otherCriteria1)
 {
 	this->criteria = criteria1;
 	this->otherCriteria = otherCriteria1;
+}
+*/
+
+FilterAnd::FilterAnd(FilteringCriteria* f, FilteringCriteria* s)
+{
+	this->criteria = f;
+	this->otherCriteria = s;
 }
