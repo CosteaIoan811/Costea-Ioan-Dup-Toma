@@ -3,10 +3,9 @@
 //#include "Offer.h"
 // you can add all your filtering classes in this module
 class FilteringCriteria
-{public:
-	DynamicArray filter(DynamicArray& arr) {
-		return arr;
-	}
+{
+	virtual DynamicArray filter(DynamicArray& da);
+
 };
 //this clase inherits from filtering criteria
 
@@ -16,6 +15,8 @@ private:
 
 public:
 	inline void set_price(unsigned int i) { this->price = i; }
+	FilterPrice(int i);
+	FilterPrice();
 	DynamicArray filter(DynamicArray& arr) {
 		DynamicArray result;
 		for (int i = 0; i < arr.getLength(); i++) {
@@ -38,6 +39,8 @@ public:
 		if (tip == 1)type = CRUISE;
 		if (tip == 2)type = ALL_INCLUSIVE;
 	}
+	FilterType();
+	FilterType(int tip);
 	DynamicArray filter(DynamicArray& arr) {
 		DynamicArray result;
 		/*

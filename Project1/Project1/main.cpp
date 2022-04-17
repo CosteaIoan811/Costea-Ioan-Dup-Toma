@@ -24,7 +24,10 @@ void displayMenu() {
 
     DynamicArray da(1);
     Offer a("id1", 3, "Bucuresti", "20.3.2022", "23.3.2022", CRUISE);
-    
+    Offer a1("id2", 42, "Alba", "20.3.2022", "25.3.2022", CITY_BREAK);
+    da.append(a);
+    da.append(a1);
+
     while (running)
     {
         cout << "\nOption: ";
@@ -63,8 +66,8 @@ void displayMenu() {
             int tip1;
             cout << "Type";
             cin >> tip1;
-            FilterType fil1;
-            fil1.set_type(tip1);
+            FilterType fil1(tip1);
+           // fil1.set_type(tip1);
             DynamicArray da1 = fil1.filter(da);
             cout << da1;
         }
