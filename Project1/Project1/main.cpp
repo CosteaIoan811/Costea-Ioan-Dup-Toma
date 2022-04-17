@@ -28,8 +28,15 @@ void displayMenu() {
     da.append(a);
     da.append(a1);
     FilterDeparture fd("Bucuresti");
-    da = fd.filter(da);
-    cout << da;
+    FilterPrice fp(52);
+    FilterAnd FilterByAnd(fp,fd);
+    DynamicArray da1 = FilterByAnd.filter(da);
+    cout << da1;
+
+
+
+
+
     while (running)
     {
         cout << "\nOption: ";

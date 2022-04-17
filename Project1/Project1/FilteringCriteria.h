@@ -3,8 +3,10 @@
 #include <string>
 //#include "Offer.h"
 // you can add all your filtering classes in this module
+
+
 class FilteringCriteria
-{
+{public:
 	virtual DynamicArray filter(DynamicArray& da);
 
 };
@@ -96,6 +98,23 @@ public:
 	DynamicArray filter(DynamicArray& arr) {
 		DynamicArray result = fp.filter(arr);
 		result = ft.filter(result);
+		return result;
+	}
+};
+
+class FilterAnd :public FilteringCriteria {
+public:
+	FilteringCriteria criteria;
+	FilteringCriteria otherCriteria;
+public:
+	FilterAnd(FilteringCriteria criteria1, FilteringCriteria otherCriteria1);
+
+	DynamicArray filter(DynamicArray& arr) {
+		DynamicArray result;
+		result = criteria.filter(arr);
+		cout << result;
+		//result = otherCriteria.filter(result);
+		
 		return result;
 	}
 };
