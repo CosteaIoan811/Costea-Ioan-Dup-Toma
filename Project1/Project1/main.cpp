@@ -31,7 +31,7 @@ void displayMenu() {
     FilterPrice fp(50);
     FilterAnd fa(&fp,&fd);
     DynamicArray da1 = fa.filter(da);
-    cout << da1;//here its the proof that it works:))
+    cout << da1;//here its the proof that it works:)
 
 
 
