@@ -27,7 +27,9 @@ void displayMenu() {
     Offer a1("id2", 42, "Alba", "20.3.2022", "25.3.2022", CITY_BREAK);
     da.append(a);
     da.append(a1);
-
+    FilterDeparture fd("Bucuresti");
+    da = fd.filter(da);
+    cout << da;
     while (running)
     {
         cout << "\nOption: ";
