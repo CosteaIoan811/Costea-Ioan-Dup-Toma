@@ -25,13 +25,15 @@ void displayMenu() {
     DynamicArray da(1);
     Offer a("id1", 3, "Bucuresti", "20.3.2022", "23.3.2022", CRUISE);
     Offer a1("id2", 42, "Alba", "20.3.2022", "25.3.2022", CITY_BREAK);
+    Offer a2("id2", 100, "Alba", "20.3.2022", "25.3.2022", CITY_BREAK);
     da.append(a);
     da.append(a1);
+    da.append(a2);
     FilterDeparture fd("Alba");
     FilterPrice fp(50);
-    FilterAnd fa(&fp,&fd);
-    DynamicArray da1 = fa.filter(da);
-    cout << da1;//here its the proof that it works:)
+    FilterAnd FilterByAnd(&fp,&fd);
+    DynamicArray da1 = FilterByAnd.filter(da);
+    cout << da1;
 
 
 
