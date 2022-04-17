@@ -28,3 +28,8 @@ FilterPrice::FilterPrice()
 {
 	this->price = 10;
 }
+
+FilterDeparture::FilterDeparture(string loc1)
+{
+	this->loc = loc1;
+}

@@ -1,5 +1,6 @@
 #pragma once
 #include "DynamicArray.h"
+#include <string>
 //#include "Offer.h"
 // you can add all your filtering classes in this module
 class FilteringCriteria
@@ -61,6 +62,25 @@ public:
 	}
 
 };
+class FilterDeparture :public FilteringCriteria {
+private:string loc;
+
+public:
+	FilterDeparture(string loc);
+	DynamicArray filter(DynamicArray& arr) {
+		DynamicArray result;
+		for (int i = 0; i < arr.getLength(); i++) {
+			Offer a = arr.get(i);
+			if (a.get_destination() == loc) { result.append(a); }
+		}
+		return result;
+	}
+
+
+};
+
+
+
 class FilterTP :public FilteringCriteria {//type price
 private:
 	FilterPrice fp;
